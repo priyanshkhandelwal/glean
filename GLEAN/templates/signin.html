@@ -98,7 +98,18 @@
                     </div>
 
                     <div class="text-center">
-                        <p>Not registered yet ?? <a href="#">Signup</a> </p>
+                        <p>Not registered yet ?? <a href="signup">Signup</a> </p>
+                    </div>
+
+                    <div class="text-center">
+                        {% load socialaccount %}
+                        {% if user.is_authenticated %}
+                        <p>Welcome, {{ user.username }} !</p>
+                        
+                        {% else %}
+                        <!-- <h1>My Google Login Project</h1> -->
+                        <a href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>Login with Google</a>
+                        {% endif %}
                     </div>
                   </form>
             </div>

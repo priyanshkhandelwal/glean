@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <base href="/">
         <title>Glean : Ek Prayas</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -120,6 +121,17 @@
 
                     <div class="text-center">
                         <p>Already Registered ?? <a href="#">Signin</a> </p>
+                    </div>
+
+                    <div class="text-center">
+                        {% load socialaccount %}
+                        {% if user.is_authenticated %}
+                        <p>Welcome, {{ user.username }} !</p>
+                        
+                        {% else %}
+                        <!-- <h1>My Google Login Project</h1> -->
+                        <a href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>Login with Google</a>
+                        {% endif %}
                     </div>
                   </form>
             </div>
