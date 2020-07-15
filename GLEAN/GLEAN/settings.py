@@ -22,6 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'lk@2%hl-4^^cna5fm#j3zas4yr^uih*%dnq$q4uj0zc($-ce6z'
 
+
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '569257723766586'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='f4fb0bf968b2604e0e46b18e49ec2959' #app key
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sites', 
     'social_app', 
     'allauth',
+    'social_django',
     'allauth.account',   
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
@@ -131,10 +137,15 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,"static"),)
 AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
  'allauth.account.auth_backends.AuthenticationBackend',
+ 'social_core.backends.facebook.FacebookOAuth2',
  )
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
+#little options for your page's signup.
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_USERNAME_REQURIED=True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -146,4 +157,27 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     }
+}
+{
+    'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email','public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'kr_KR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}
+
 }

@@ -25,4 +25,5 @@ urlpatterns = [
     path('signin/signup/', views.signup,name='signup'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('social-auth/', include('social_django.urls', namespace="social")),
 ]
