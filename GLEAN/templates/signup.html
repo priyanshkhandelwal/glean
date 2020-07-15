@@ -131,7 +131,12 @@
                         {% else %}
                         <!-- <h1>My Google Login Project</h1> -->
                         <a href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>Login with Google</a>
+                        <!-- <h1>My Facebook Login Project</h1> -->
                         {% endif %}
+                        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-social btn-facebook" style="background-color:#3b5998;text-align:center">
+                          <span class="fa fa-facebook"></span>
+                                       Login with Facebook
+                         </a>  
                     </div>
                   </form>
             </div>
