@@ -19,7 +19,7 @@
         <style>
             form {
               position: absolute;
-              top: 50%;
+              top: 55%;
               left: 50%;
               transform: translate(-50%, -50%);
             }
@@ -57,6 +57,36 @@
                 border-radius: 0.25rem;
                 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
             }
+            .btn2 {
+                width: 50%;
+                padding: 12px;
+                border: none;
+                border-radius: 4px;
+                margin: 5px 0;
+                opacity: 0.85;
+                display: inline-block;
+                font-size: 17px;
+                line-height: 20px;
+                text-decoration: none; /* remove underline from anchors */
+                }
+
+                input:hover,
+                .btn2:hover {
+                opacity: 1;
+                color: white;
+                }
+
+                /* add appropriate colors to fb, twitter and google buttons */
+            .fb {
+                background-color: #3B5998;
+                color: white;
+                }
+
+            .google {
+                background-color: #dd4b39;
+                color: white;
+                }
+
           </style>
 
     </head>
@@ -70,6 +100,11 @@
                     <h2 class="section-heading text-uppercase">Sign In</h2>
                     <h3 class="section-subheading text-muted">Please Sign In Here</h3>
                 </div>
+            </div>
+        </section></br></br>
+        <section class="page-section">
+            <div class="container">
+                
                 <form action="/afterlogin/" method="POST" class="form">
                     <div class="form-group">
                       <label>Email:</label>
@@ -109,16 +144,15 @@
                         
                         {% else %}
                         <!-- <h1>My Google Login Project</h1> -->
-                        <a href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>Login with Google</a>
+                        <a href="{% provider_login_url 'google' %}" class="google btn2"><i class="fab fa-google fa-fw"></i>Login with Google</a>
                         
                         {% endif %}
-                        <a href="{% url 'social:begin' 'facebook'%}" class="btn btn-block btn-social btn-facebook" style="background-color:#3b5998;text-align:center">
-                            <span class="fa fa-facebook"></span>
-                                         Login with Facebook
-                           </a>  
+                        <p><a href="{% url 'social:begin' 'facebook'%}" class="fb btn2"><i class='fab fa-facebook fa-fw'></i>
+                            Login With Facebook 
+                           </a></p>  
                     </div>
                   </form>
-            </div>
+                </div>
         </section>
 
         <section>
