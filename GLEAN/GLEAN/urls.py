@@ -26,4 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('social-auth/', include('social_django.urls', namespace="social")),
+    path('aftersignin/', views.aftersignin),
+    path('aftersignup/', views.aftersignup)
 ]

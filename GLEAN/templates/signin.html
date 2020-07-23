@@ -1,3 +1,8 @@
+{% if message %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -105,7 +110,8 @@
         <section class="page-section">
             <div class="container">
                 
-                <form action="/afterlogin/" method="POST" class="form">
+                <form action="/aftersignin/" method="POST" class="form">
+                    {% csrf_token %}
                     <div class="form-group">
                       <label>Email:</label>
                       <input

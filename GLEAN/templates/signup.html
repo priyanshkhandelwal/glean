@@ -1,3 +1,8 @@
+{% if message %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -71,8 +76,8 @@
                     <h2 class="section-heading text-uppercase">Sign Up</h2>
                     <!-- <h3 class="section-subheading text-muted">Please Sign In Here</h3> -->
                 </div>
-                <form action="/afterlogin/" method="POST" class="form">
-                    
+                <form action="/aftersignup/" method="POST" class="form">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label>Name:</label>
                         <input
@@ -114,8 +119,8 @@
                       </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn1 btn-primary">
-                            Login   
+                        <button type="submit" class="btn1 btn-primary" onclick="location.href='signin'" >
+                            Submit   
                         </button>
                     </div>
 
