@@ -27,5 +27,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('aftersignin/', views.aftersignin),
-    path('aftersignup/', views.aftersignup)
+    path('aftersignup/', views.aftersignup),
+    path('booking/', views.service_booking,name='booking'),
+    path('notification/', views.service_noti, name='notification')
 ]

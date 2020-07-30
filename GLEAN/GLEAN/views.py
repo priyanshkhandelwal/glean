@@ -50,7 +50,12 @@ def aftersignup(request):
     
     data={'name':name, 'status':'1'}
 
-    database.child('users').child('uid').child('details').set(data)
+    database.child('users').child('uid').child('details').push(data)
 
     return render(request,'signin.html')
 
+def service_booking(request):
+    return render(request, 'booking.html')
+
+def service_noti(request):
+    return render(request, 'notification.html')
